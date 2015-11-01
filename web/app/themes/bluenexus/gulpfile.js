@@ -22,6 +22,7 @@ gulp.task('browser-sync', function() {
         proxy: appUrl,
         open: false
     });
+    gulp.watch('*.php').on( 'change', browsersync.reload);
 });
 
 // Lint Task
@@ -44,17 +45,18 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
+    return gulp.src(['js/*.js', '!js/customizer.js', 'vendor/skrollr/src/skrollr.js'])
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist'))
-        .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}));
+        .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
+    gulp.watch('dist/all.min.js').on( 'change', browsersync.reload);
     gulp.watch('js/*.js', ['lint', 'scripts']);
     gulp.watch('scss/**/*.scss', ['sass']);
     gulp.watch('vendor/Materialize/sass/**/*.scss', ['sass']);

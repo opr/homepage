@@ -9,10 +9,10 @@ set :repo_url, 'git@github.com:opr/homepage.git'
 # This could be overridden in a stage config file
 set :branch, :master
 
-set :deploy_to, -> { "/home/thomas-roberts/domains/#{fetch(:application)}" }
+set :deploy_to, -> { "/home/thomasroberts/www" }
 
 # Use :debug for more verbose output when troubleshooting
-set :log_level, :info
+set :log_level, :debug
 
 # Apache users with .htaccess files:
 # it needs to be added to linked_files so it persists across deploys:

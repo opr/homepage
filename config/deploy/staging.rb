@@ -8,7 +8,7 @@ set :stage, :staging
 
 # Extended Server Syntax
 # ======================
-server 'bluenexusmedia.com', user: 'deploy', roles: %w{web app db}
+server 'thomas-roberts.co.uk', user: 'thomasroberts', roles: %w{web app db}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

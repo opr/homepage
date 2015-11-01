@@ -120,6 +120,9 @@ function bluenexus_scripts() {
 
 	wp_enqueue_script( 'bluenexus-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js', [], '2.1.4', true );
+	wp_enqueue_script( 'bluenexus-main', get_template_directory_uri() . '/dist/all.min.js', [ 'jquery' ], '', true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
